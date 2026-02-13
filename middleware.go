@@ -8,7 +8,6 @@ import (
 	"time"
 )
 
-// ─── Middleware Type ──────────────────────────────────────────────────────────
 
 // Middleware wraps an http.HandlerFunc and returns a new one.
 // This lets us compose behaviors cleanly without nesting callbacks.
@@ -41,7 +40,6 @@ func LoggingMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
-// ─── Method Middleware ────────────────────────────────────────────────────────
 
 // MethodMiddleware rejects requests that don't match the allowed HTTP method.
 // OPTIONS is always allowed so CORS preflight passes through.
@@ -57,7 +55,6 @@ func MethodMiddleware(method string) Middleware {
 	}
 }
 
-// ─── Rate Limit Middleware ────────────────────────────────────────────────────
 
 // RateLimitMiddleware uses a sliding window to cap requests per IP.
 // Applied to auth endpoints to prevent brute-force attacks.
@@ -72,7 +69,6 @@ func RateLimitMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
-// ─── Auth Middleware ──────────────────────────────────────────────────────────
 
 // AuthMiddleware validates the JWT access token in the Authorization header.
 // On success it injects the parsed Claims into the request context so
@@ -99,7 +95,6 @@ func AuthMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 // isRateLimited uses a sliding window to count requests per IP per minute.
 // Returns true if the IP has exceeded rateLimitMax requests.
