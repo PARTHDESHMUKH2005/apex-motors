@@ -16,10 +16,8 @@ func main() {
 	// Populate the in-memory store with demo cars
 	seedDemoInventory()
 
-	// ── Router ────────────────────────────────────────────────────────────────
 	mux := http.NewServeMux()
 
-	// ── Static page routes ────────────────────────────────────────────────────
 	// Each route serves the corresponding HTML file from the static/ directory.
 	// The frontend uses shared.css and shared.js for styling and common behavior.
 	mux.HandleFunc("/", LoggingMiddleware(func(w http.ResponseWriter, r *http.Request) {
@@ -50,7 +48,6 @@ func main() {
 	// Serve static assets (CSS, JS, images) from the static/ folder
 	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-	// ── Auth API ──────────────────────────────────────────────────────────────
 	// Rate limited to prevent brute-force attacks.
 	mux.HandleFunc("/api/login",
 		LoggingMiddleware(Chain(loginHandler,
@@ -72,7 +69,6 @@ func main() {
 			MethodMiddleware("POST"),
 		)))
 
-	// ── Car Listing API ───────────────────────────────────────────────────────
 	// All car routes require a valid JWT access token.
 
 	// GET  /api/cars         — list all (with optional filters)
@@ -102,7 +98,6 @@ func main() {
 			}
 		}))
 
-	// ── Utility API ───────────────────────────────────────────────────────────
 
 	// POST /api/valuate — rule-based car valuation engine
 	mux.HandleFunc("/api/valuate",
@@ -118,7 +113,6 @@ func main() {
 			MethodMiddleware("GET"),
 		)))
 
-	// ── CORS ──────────────────────────────────────────────────────────────────
 	// Configured to only accept requests from our own origin.
 	// In production, set allowedOrigins to your actual domain.
 	c := cors.New(cors.Options{
@@ -129,7 +123,6 @@ func main() {
 		MaxAge:           300, // cache preflight for 5 minutes
 	})
 
-	// ── Server ────────────────────────────────────────────────────────────────
 	srv := &http.Server{
 		Addr:         serverAddr,
 		Handler:      c.Handler(mux),
@@ -138,10 +131,9 @@ func main() {
 		IdleTimeout:  serverIdleTTO,
 	}
 
-	log.Println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 	log.Println("  APEX MOTORS  →  http://localhost:5001      ")
 	log.Println("  Login:  seller / carmarket123              ")
-	log.Println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+	
 
 	if err := srv.ListenAndServe(); err != nil {
 		log.Fatal(err)
