@@ -11,7 +11,9 @@ import (
 
 // Middleware wraps an http.HandlerFunc and returns a new one.
 // This lets us compose behaviors cleanly without nesting callbacks.
-type Middleware func(http.HandlerFunc) http.HandlerFunc
+type Middleware func(http.HandlerFunc) http.Handlerfunc
+
+
 
 // Chain applies a list of middlewares to a handler.
 // Declaration order = execution order (first listed = outermost wrapper).
