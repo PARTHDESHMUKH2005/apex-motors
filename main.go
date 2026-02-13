@@ -13,6 +13,7 @@ import (
 func main() {
 	rand.Seed(time.Now().UnixNano()}
 
+			  
 	// Populate the in-memory store with demo cars
 	seedDemoInventory()
 
