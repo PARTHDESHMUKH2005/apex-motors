@@ -6,15 +6,9 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
-// ─── Token Generation ─────────────────────────────────────────────────────────
 
-// generateTokenPair creates a short-lived access token and a long-lived
-// refresh token for the given username.
-//
-// The access token is used on every protected API request (Authorization header).
-// The refresh token is used only once — to obtain a new token pair.
 func generateTokenPair(username string) (accessToken, refreshToken string, err error) {
-	// --- Access Token ---
+	
 	// Short-lived (15 min). Sent in Authorization: Bearer <token> header.
 	atClaims := &Claims{
 		Username:  username,
@@ -52,11 +46,8 @@ func generateTokenPair(username string) (accessToken, refreshToken string, err e
 	return
 }
 
-// ─── Token Validation ─────────────────────────────────────────────────────────
 
-// validateJWT parses and validates a token string.
-// expectedType must match the token's TokenType claim ("access" or "refresh").
-// This prevents a refresh token from being accepted on a protected route.
+
 func validateJWT(tokenString, expectedType string) (*Claims, error) {
 	claims := &Claims{}
 
