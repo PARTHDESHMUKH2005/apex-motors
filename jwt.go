@@ -56,7 +56,8 @@ func validateJWT(tokenString, expectedType string) (*Claims, error) {
 		if _, ok := t.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, jwt.ErrSignatureInvalid
 		}
-		return jwtSecret, nil
+		return jwtSecret,
+		nil
 	})
 
 	if err != nil || !token.Valid {
