@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Motors — Sold Archive</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .archive-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
+    }
+    .archive-card {
+      background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; position: relative;
+    }
+    .archive-img { height: 220px; overflow: hidden; position: relative; }
+    .archive-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); }
+    .sold-ribbon {
+      position: absolute; top: 1rem; left: 1rem;
+      font-family: var(--font-display); font-size: 0.55rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.8rem;
+      background: rgba(200,30,30,0.9); color: white;
+    }
+    .archive-body { padding: 1.5rem; }
+    .archive-body .brand { font-family: var(--font-display); font-size: 0.6rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .archive-body h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+    .archive-body .meta { font-family: var(--font-ui); font-size: 0.75rem; color: var(--gray); }
+    .archive-body .sold-price { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-light); text-decoration: line-through; margin-top: 0.75rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Apex Motors</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="login.html" class="nav-cta" style="text-decoration:none;">Member Access</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero">
+    <span class="section-label">Legacy</span>
+    <h1>Sold Archive</h1>
+    <p>A showcase of exceptional vehicles we've placed with collectors worldwide. Each one found its perfect home.</p>
+  </div>
+
+  <section class="section">
+    <div class="archive-grid">
+      <div class="archive-card reveal">
+        <div class="archive-img">
+          <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="Bugatti Veyron" />
+          <span class="sold-ribbon">Sold</span>
+        </div>
+        <div class="archive-body">
+          <div class="brand">Bugatti</div>
+          <h3>Veyron Grand Sport Vitesse</h3>
+          <div class="meta">Sold January 2026 · Monaco</div>
+          <div class="sold-price">$2,400,000</div>
+        </div>
+      </div>
+
+      <div class="archive-card reveal">
+        <div class="archive-img">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="McLaren P1" />
+          <span class="sold-ribbon">Sold</span>
+        </div>
+        <div class="archive-body">
+          <div class="brand">McLaren</div>
+          <h3>P1 GTR</h3>
+          <div class="meta">Sold December 2025 · Dubai</div>
+          <div class="sold-price">$3,100,000</div>
+        </div>
+      </div>
+
+      <div class="archive-card reveal">
+        <div class="archive-img">
+          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80" alt="Ferrari FXX-K" />
+          <span class="sold-ribbon">Sold</span>
+        </div>
+        <div class="archive-body">
+          <div class="brand">Ferrari</div>
+          <h3>FXX-K Evo</h3>
+          <div class="meta">Sold November 2025 · London</div>
+          <div class="sold-price">$4,200,000</div>
+        </div>
+      </div>
+
+      <div class="archive-card reveal">
+        <div class="archive-img">
+          <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&q=80" alt="Koenigsegg One:1" />
+          <span class="sold-ribbon">Sold</span>
+        </div>
+        <div class="archive-body">
+          <div class="brand">Koenigsegg</div>
+          <h3>One:1</h3>
+          <div class="meta">Sold October 2025 · Private</div>
+          <div class="sold-price">$6,000,000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:5rem 5%;text-align:center;">
+    <p style="font-size:0.9rem;color:var(--gray-light);margin-bottom:1.5rem;">Looking to sell your hypercar through Apex?</p>
+    <a href="services.html#consignment" class="btn-gold" style="text-decoration:none;">Consignment Program</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Apex Motors</a><p>Curating automotive excellence since 2008.</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="collection.html">Collection</a><a href="experience.html">Experience</a><a href="new-arrivals.html">New Arrivals</a><a href="sold-archive.html">Sold Archive</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html#consignment">Consignment</a><a href="services.html#financing">Financing</a><a href="services.html#storage">Storage</a><a href="services.html#maintenance">Maintenance</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="contact.html#monaco">Monaco</a><a href="contact.html#dubai">Dubai</a><a href="contact.html#london">London</a><a href="mailto:inquiry@apexmotors.com">inquiry@apexmotors.com</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Apex Motors. All rights reserved.</p></div>
+  </footer>
+  <script src="shared.js"></script>
+</body>
+</html>

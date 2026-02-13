@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Motors — Experience</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .exp-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    }
+
+    .exp-card {
+      padding: 3rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--bg-card);
+      transition: all 0.4s ease;
+    }
+
+    .exp-card:hover {
+      border-color: var(--gold-dim);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .exp-icon {
+      width: 56px; height: 56px; margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--gold-dim); color: var(--gold);
+    }
+
+    .exp-icon svg { width: 26px; height: 26px; }
+
+    .exp-card h3 {
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;
+    }
+
+    .exp-card p {
+      font-family: var(--font-ui); font-size: 0.9rem; font-weight: 300;
+      color: var(--gray-light); line-height: 1.8; margin-bottom: 1.5rem;
+    }
+
+    .exp-card ul { margin-bottom: 1.5rem; }
+
+    .exp-card ul li {
+      font-family: var(--font-ui); font-size: 0.85rem; font-weight: 300;
+      color: var(--gray-light); padding: 0.4rem 0; padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .exp-card ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.75rem;
+      width: 5px; height: 5px; background: var(--gold);
+    }
+
+    .exp-link {
+      font-family: var(--font-display); font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); transition: color 0.3s ease;
+    }
+
+    .exp-link:hover { color: var(--gold-light); }
+
+    /* Timeline section */
+    .timeline-section { background: var(--bg-card); }
+
+    .timeline {
+      max-width: 800px; margin: 3rem auto 0;
+      position: relative; padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      margin-bottom: 3rem; position: relative;
+    }
+
+    .timeline-item::before {
+      content: ''; position: absolute; left: -3rem;
+      top: 0.3rem; width: 10px; height: 10px;
+      background: var(--gold); transform: rotate(45deg);
+    }
+
+    .timeline-item h4 {
+      font-family: var(--font-display); font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-item h3 {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+      font-family: var(--font-ui); font-size: 0.9rem; font-weight: 300;
+      color: var(--gray-light); line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .exp-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Apex Motors</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="experience.html" class="active">Experience</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="login.html" class="nav-cta" style="text-decoration:none;">Member Access</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero">
+    <span class="section-label">Why Apex</span>
+    <h1>The Apex Experience</h1>
+    <p>From rigorous authentication to white-glove global delivery, every touchpoint is crafted for the world's most discerning collectors.</p>
+  </div>
+
+  <!-- Services Grid -->
+  <section class="section">
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Authentication & Provenance</h3>
+        <p>Every vehicle in our collection passes a meticulous multi-stage verification process before listing.</p>
+        <ul>
+          <li>300-point mechanical inspection</li>
+          <li>Complete ownership history trace</li>
+          <li>Factory-verified VIN authentication</li>
+          <li>Independent third-party valuation</li>
+        </ul>
+        <a href="contact.html" class="exp-link">Learn More →</a>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Global Delivery</h3>
+        <p>White-glove logistics to any destination on Earth. Your hypercar arrives in showroom condition.</p>
+        <ul>
+          <li>Climate-controlled enclosed transport</li>
+          <li>Real-time GPS tracking portal</li>
+          <li>Door-to-door service across 60+ countries</li>
+          <li>Full marine & air insurance coverage</li>
+        </ul>
+        <a href="services.html" class="exp-link">Our Logistics →</a>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Personal Concierge</h3>
+        <p>A dedicated specialist assigned exclusively to you from first inquiry to delivery and beyond.</p>
+        <ul>
+          <li>Bespoke vehicle sourcing worldwide</li>
+          <li>Private showroom viewings by appointment</li>
+          <li>VIP access to manufacturer events</li>
+          <li>Exclusive member-only auctions</li>
+        </ul>
+        <a href="contact.html" class="exp-link">Connect Now →</a>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>Investment Advisory</h3>
+        <p>Hypercars are among the best-performing alternative assets. Let our experts guide your portfolio.</p>
+        <ul>
+          <li>Real-time market analytics dashboard</li>
+          <li>Historical appreciation analysis</li>
+          <li>Tax-efficient ownership structuring</li>
+          <li>Collection diversification strategy</li>
+        </ul>
+        <a href="services.html#financing" class="exp-link">Explore Investing →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section timeline-section">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <span class="section-label">Your Journey</span>
+      <h2 class="section-title">How It Works</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <h4>Step 01</h4>
+        <h3>Initial Consultation</h3>
+        <p>Share your vision and preferences in a private consultation. Our experts curate a shortlist tailored to your taste, budget, and collection goals.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <h4>Step 02</h4>
+        <h3>Private Viewing</h3>
+        <p>Experience your shortlisted vehicles in person at one of our showrooms or via a live virtual tour with full vehicle walk-around.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <h4>Step 03</h4>
+        <h3>Authentication & Due Diligence</h3>
+        <p>We provide our comprehensive provenance report, independent inspection results, and transparent market valuation data.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <h4>Step 04</h4>
+        <h3>Secure Acquisition</h3>
+        <p>Our legal team handles all paperwork, title transfer, and compliance across jurisdictions. Financing options available for qualified buyers.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <h4>Step 05</h4>
+        <h3>Delivery & Beyond</h3>
+        <p>Your hypercar is delivered in perfect condition. Enjoy ongoing support including storage, maintenance scheduling, and resale advisory.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:6rem 5%;text-align:center;background:linear-gradient(135deg, #0d0d0d, #1a1208);">
+    <span class="section-label">Ready?</span>
+    <h2 class="section-title" style="margin-bottom:1.5rem;">Start Your Experience</h2>
+    <p style="font-family:var(--font-ui);font-size:1rem;font-weight:300;color:var(--gray-light);max-width:500px;margin:0 auto 2rem;line-height:1.8;">
+      Book a private consultation with one of our specialists today.
+    </p>
+    <a href="contact.html" class="btn-gold" style="text-decoration:none;">Schedule Consultation</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Apex Motors</a><p>The world's most exclusive hypercar dealership. Curating automotive excellence since 2008.</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="collection.html">Collection</a><a href="experience.html">Experience</a><a href="new-arrivals.html">New Arrivals</a><a href="sold-archive.html">Sold Archive</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html#consignment">Consignment</a><a href="services.html#financing">Financing</a><a href="services.html#storage">Storage</a><a href="services.html#maintenance">Maintenance</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="contact.html#monaco">Monaco Showroom</a><a href="contact.html#dubai">Dubai Gallery</a><a href="contact.html#london">London Office</a><a href="mailto:inquiry@apexmotors.com">inquiry@apexmotors.com</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Apex Motors. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

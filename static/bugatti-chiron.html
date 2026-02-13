@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Motors — Bugatti Chiron Super Sport</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .detail-hero {
+      padding: 8rem 5% 4rem;
+      background: linear-gradient(to bottom, #0d0d0d, #151515);
+    }
+
+    .detail-hero-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center;
+    }
+
+    .detail-image { position: relative; overflow: hidden; }
+
+    .detail-image img {
+      width: 100%; height: 500px; object-fit: cover; display: block;
+    }
+
+    .detail-badge {
+      position: absolute; top: 1.5rem; left: 1.5rem;
+      font-family: var(--font-display); font-size: 0.55rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1rem;
+      background: var(--gold); color: var(--bg-dark);
+    }
+
+    .detail-info .brand-label {
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+    }
+
+    .detail-info h1 {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;
+      background: linear-gradient(180deg, #f0ece4, #c9c0ae);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .detail-info .price {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+
+    .detail-info .desc {
+      font-family: var(--font-ui); font-size: 0.95rem; font-weight: 300;
+      color: var(--gray-light); line-height: 1.8; margin-bottom: 2rem;
+    }
+
+    .specs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem;
+    }
+
+    .spec-box {
+      padding: 1.25rem; border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02); text-align: center;
+    }
+
+    .spec-box .val {
+      font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem;
+    }
+
+    .spec-box .lbl {
+      font-family: var(--font-ui); font-size: 0.65rem; color: var(--gray);
+      text-transform: uppercase; letter-spacing: 1.5px;
+    }
+
+    .detail-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Features section */
+    .features-section { background: var(--bg-card); }
+
+    .features-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;
+    }
+
+    .feature {
+      padding: 2rem; border: 1px solid rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.02); text-align: center;
+    }
+
+    .feature h3 {
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;
+    }
+
+    .feature p {
+      font-family: var(--font-ui); font-size: 0.85rem; font-weight: 300;
+      color: var(--gray-light); line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .detail-hero-inner { grid-template-columns: 1fr; }
+      .detail-image img { height: 300px; }
+      .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Apex Motors</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="collection.html" class="active">Collection</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="login.html" class="nav-cta" style="text-decoration:none;">Member Access</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <section class="detail-hero">
+    <div class="detail-hero-inner">
+      <div class="detail-image">
+        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&q=80" alt="Bugatti Chiron Super Sport" />
+        <span class="detail-badge">Exclusive</span>
+      </div>
+      <div class="detail-info">
+        <div class="brand-label">Bugatti</div>
+        <h1>Chiron Super Sport</h1>
+        <div class="price">$3,900,000</div>
+        <p class="desc">The Bugatti Chiron Super Sport is the pinnacle of automotive engineering — a grand touring hypercar that combines breathtaking speed with unparalleled luxury. With its quad-turbocharged 8.0-liter W16 engine producing 1,600 horsepower, it holds the record as one of the fastest production cars ever built.</p>
+        <div class="specs-grid">
+          <div class="spec-box"><div class="val">1600 HP</div><div class="lbl">Power</div></div>
+          <div class="spec-box"><div class="val">2.3s</div><div class="lbl">0-60 MPH</div></div>
+          <div class="spec-box"><div class="val">304 MPH</div><div class="lbl">Top Speed</div></div>
+          <div class="spec-box"><div class="val">W16</div><div class="lbl">Engine</div></div>
+          <div class="spec-box"><div class="val">7-Speed</div><div class="lbl">Transmission</div></div>
+          <div class="spec-box"><div class="val">AWD</div><div class="lbl">Drivetrain</div></div>
+        </div>
+        <div class="detail-actions">
+          <a href="contact.html" class="btn-gold" style="text-decoration:none;">Inquire Now</a>
+          <a href="collection.html" class="btn-outline" style="text-decoration:none;">← Back to Collection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features-section">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <span class="section-label">Highlights</span>
+      <h2 class="section-title">Key Features</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature reveal"><h3>Longtail Body</h3><p>Extended rear by 25cm for improved aerodynamic efficiency and top speed performance.</p></div>
+      <div class="feature reveal"><h3>Carbon Fiber</h3><p>Extensive carbon fiber construction throughout body and chassis for weight reduction.</p></div>
+      <div class="feature reveal"><h3>Luxury Interior</h3><p>Hand-stitched leather, polished aluminum, and bespoke trim options throughout the cabin.</p></div>
+      <div class="feature reveal"><h3>Active Aero</h3><p>Adaptive rear wing and air brake system for optimal downforce at all speeds.</p></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Apex Motors</a><p>Curating automotive excellence since 2008.</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="collection.html">Collection</a><a href="experience.html">Experience</a><a href="new-arrivals.html">New Arrivals</a><a href="sold-archive.html">Sold Archive</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html#consignment">Consignment</a><a href="services.html#financing">Financing</a><a href="services.html#storage">Storage</a><a href="services.html#maintenance">Maintenance</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="contact.html#monaco">Monaco</a><a href="contact.html#dubai">Dubai</a><a href="contact.html#london">London</a><a href="mailto:inquiry@apexmotors.com">inquiry@apexmotors.com</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Apex Motors. All rights reserved.</p></div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

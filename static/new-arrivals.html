@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Motors — New Arrivals</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .arrivals-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;
+    }
+    .arrival-card {
+      background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: all 0.4s ease;
+    }
+    .arrival-card:hover { transform: translateY(-6px); border-color: var(--gold-dim); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+    .arrival-img { height: 230px; overflow: hidden; position: relative; }
+    .arrival-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .arrival-card:hover .arrival-img img { transform: scale(1.06); }
+    .arrival-new { position: absolute; top: 1rem; right: 1rem; font-family: var(--font-display); font-size: 0.5rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.8rem; background: var(--orange-accent); color: white; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.7;} }
+    .arrival-body { padding: 1.5rem; }
+    .arrival-body .brand { font-family: var(--font-display); font-size: 0.6rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .arrival-body h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+    .arrival-body .date { font-family: var(--font-ui); font-size: 0.75rem; color: var(--gray); margin-bottom: 1rem; }
+    .arrival-body .price-row { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .arrival-body .price { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+    .arrival-body .link { font-family: var(--font-display); font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-light); transition: color 0.3s; }
+    .arrival-body .link:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Apex Motors</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="login.html" class="nav-cta" style="text-decoration:none;">Member Access</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero">
+    <span class="section-label">Just Listed</span>
+    <h1>New Arrivals</h1>
+    <p>The latest additions to our curated collection. These vehicles were recently acquired and authenticated.</p>
+  </div>
+
+  <section class="section">
+    <div class="arrivals-grid">
+      <div class="arrival-card reveal">
+        <div class="arrival-img">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Porsche 918 Spyder" />
+          <span class="arrival-new">Just In</span>
+        </div>
+        <div class="arrival-body">
+          <div class="brand">Porsche</div>
+          <h3>918 Spyder Weissach</h3>
+          <div class="date">Listed February 10, 2026</div>
+          <div class="price-row">
+            <span class="price">$1,850,000</span>
+            <a href="contact.html" class="link">Inquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrival-card reveal">
+        <div class="arrival-img">
+          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80" alt="Ferrari SF90 Stradale" />
+          <span class="arrival-new">Just In</span>
+        </div>
+        <div class="arrival-body">
+          <div class="brand">Ferrari</div>
+          <h3>SF90 XX Stradale</h3>
+          <div class="date">Listed February 8, 2026</div>
+          <div class="price-row">
+            <span class="price">$950,000</span>
+            <a href="contact.html" class="link">Inquire →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrival-card reveal">
+        <div class="arrival-img">
+          <img src="https://images.unsplash.com/photo-1621993202323-eb4e81f5aba2?w=600&q=80" alt="Aston Martin Valkyrie" />
+          <span class="arrival-new">Just In</span>
+        </div>
+        <div class="arrival-body">
+          <div class="brand">Aston Martin</div>
+          <h3>Valkyrie AMR Pro</h3>
+          <div class="date">Listed February 5, 2026</div>
+          <div class="price-row">
+            <span class="price">$3,200,000</span>
+            <a href="contact.html" class="link">Inquire →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:5rem 5%;text-align:center;">
+    <p style="font-size:0.9rem;color:var(--gray-light);margin-bottom:1.5rem;">Want to be first to know about new listings?</p>
+    <a href="login.html?tab=signup" class="btn-gold" style="text-decoration:none;">Become a Member</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Apex Motors</a><p>Curating automotive excellence since 2008.</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="collection.html">Collection</a><a href="experience.html">Experience</a><a href="new-arrivals.html">New Arrivals</a><a href="sold-archive.html">Sold Archive</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html#consignment">Consignment</a><a href="services.html#financing">Financing</a><a href="services.html#storage">Storage</a><a href="services.html#maintenance">Maintenance</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="contact.html#monaco">Monaco</a><a href="contact.html#dubai">Dubai</a><a href="contact.html#london">London</a><a href="mailto:inquiry@apexmotors.com">inquiry@apexmotors.com</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Apex Motors. All rights reserved.</p></div>
+  </footer>
+  <script src="shared.js"></script>
+</body>
+</html>

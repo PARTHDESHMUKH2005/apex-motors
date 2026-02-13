@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Motors — Services</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .service-block {
+      max-width: 1000px; margin: 0 auto; padding: 5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .service-block:last-child { border-bottom: none; }
+    .service-block .service-num {
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 3px; color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .service-block h2 {
+      font-family: var(--font-display); font-size: 1.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.25rem;
+      background: linear-gradient(180deg, #f0ece4, #c9c0ae);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .service-block p {
+      font-family: var(--font-ui); font-size: 0.95rem; font-weight: 300;
+      color: var(--gray-light); line-height: 1.9; margin-bottom: 1.5rem; max-width: 700px;
+    }
+    .service-features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;
+    }
+    .sf-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 1rem; border: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
+    }
+    .sf-item .dot { width: 8px; height: 8px; background: var(--gold); flex-shrink: 0; margin-top: 0.5rem; }
+    .sf-item span { font-family: var(--font-ui); font-size: 0.85rem; font-weight: 300; color: var(--gray-light); line-height: 1.6; }
+    @media (max-width: 768px) { .service-features { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Apex Motors</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="login.html" class="nav-cta" style="text-decoration:none;">Member Access</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-hero">
+    <span class="section-label">What We Offer</span>
+    <h1>Our Services</h1>
+    <p>Comprehensive support for every stage of hypercar ownership — from acquisition to long-term care.</p>
+  </div>
+
+  <section class="section">
+    <!-- CONSIGNMENT -->
+    <div class="service-block reveal" id="consignment">
+      <div class="service-num">01 — Consignment</div>
+      <h2>Sell Through Apex</h2>
+      <p>Our consignment program provides the most efficient, discreet, and profitable way to sell your hypercar. We leverage our global network of qualified buyers and decades of market expertise to maximize your return.</p>
+      <div class="service-features">
+        <div class="sf-item"><div class="dot"></div><span>Professional photography & marketing</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Global buyer network of 3,000+ collectors</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Competitive commission structure</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Full legal & title transfer support</span></div>
+      </div>
+      <a href="contact.html" class="btn-gold" style="text-decoration:none;">Start Consignment</a>
+    </div>
+
+    <!-- FINANCING -->
+    <div class="service-block reveal" id="financing">
+      <div class="service-num">02 — Financing</div>
+      <h2>Bespoke Financing</h2>
+      <p>Acquire your dream hypercar with tailored financing solutions. We partner with private banks and specialist lenders to offer competitive rates and flexible terms unavailable elsewhere.</p>
+      <div class="service-features">
+        <div class="sf-item"><div class="dot"></div><span>Rates from 3.5% APR for qualified buyers</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Terms up to 84 months</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Lease-to-own and balloon options</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Pre-approval in 48 hours</span></div>
+      </div>
+      <a href="contact.html" class="btn-gold" style="text-decoration:none;">Get Pre-Approved</a>
+    </div>
+
+    <!-- STORAGE -->
+    <div class="service-block reveal" id="storage">
+      <div class="service-num">03 — Storage</div>
+      <h2>Climate-Controlled Storage</h2>
+      <p>Our state-of-the-art storage facilities in Monaco, Dubai, and London provide museum-grade conditions for your collection. Every vehicle is maintained in show-ready condition.</p>
+      <div class="service-features">
+        <div class="sf-item"><div class="dot"></div><span>Temperature maintained at 18°C ± 1°</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Humidity controlled at 45% ± 5%</span></div>
+        <div class="sf-item"><div class="dot"></div><span>24/7 security with biometric access</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Weekly battery & fluid maintenance</span></div>
+      </div>
+      <a href="contact.html" class="btn-gold" style="text-decoration:none;">Reserve a Bay</a>
+    </div>
+
+    <!-- MAINTENANCE -->
+    <div class="service-block reveal" id="maintenance">
+      <div class="service-num">04 — Maintenance</div>
+      <h2>Specialist Maintenance</h2>
+      <p>Our factory-trained technicians service and maintain the world's most complex vehicles. From routine service to complete restorations, your car is in the best hands in the industry.</p>
+      <div class="service-features">
+        <div class="sf-item"><div class="dot"></div><span>Factory-certified technicians for all brands</span></div>
+        <div class="sf-item"><div class="dot"></div><span>OEM parts sourced directly</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Pre-purchase inspections for buyers</span></div>
+        <div class="sf-item"><div class="dot"></div><span>Full restoration for classic hypercars</span></div>
+      </div>
+      <a href="contact.html" class="btn-gold" style="text-decoration:none;">Book Service</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Apex Motors</a><p>Curating automotive excellence since 2008.</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="collection.html">Collection</a><a href="experience.html">Experience</a><a href="new-arrivals.html">New Arrivals</a><a href="sold-archive.html">Sold Archive</a></div>
+      <div class="footer-col"><h4>Services</h4><a href="services.html#consignment">Consignment</a><a href="services.html#financing">Financing</a><a href="services.html#storage">Storage</a><a href="services.html#maintenance">Maintenance</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="contact.html#monaco">Monaco</a><a href="contact.html#dubai">Dubai</a><a href="contact.html#london">London</a><a href="mailto:inquiry@apexmotors.com">inquiry@apexmotors.com</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Apex Motors. All rights reserved.</p></div>
+  </footer>
+  <script src="shared.js"></script>
+</body>
+</html>

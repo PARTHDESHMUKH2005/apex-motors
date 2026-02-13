@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apex Motors — Collection</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .collection-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      padding: 0 5%;
+    }
+
+    .car-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .car-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold-dim);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .car-card-image {
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .car-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .car-card:hover .car-card-image img {
+      transform: scale(1.08);
+    }
+
+    .car-card-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-family: var(--font-display);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      background: var(--gold);
+      color: var(--bg-dark);
+    }
+
+    .car-card-body { padding: 1.5rem 1.75rem; }
+
+    .car-card-brand {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .car-card-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .car-card-specs {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .spec { display: flex; flex-direction: column; }
+
+    .spec-value {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .spec-label {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .car-card-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .price-tag {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .view-btn {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      transition: color 0.3s ease;
+    }
+
+    .view-btn:hover { color: var(--gold); }
+
+    /* Filters */
+    .filter-bar {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 5%;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      color: var(--gray-light);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      color: var(--bg-dark);
+      border-color: var(--gold);
+    }
+
+    @media (max-width: 900px) {
+      .collection-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Apex Motors</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="collection.html" class="active">Collection</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="login.html" class="nav-cta" style="text-decoration:none;">Member Access</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="section-label">The Fleet</span>
+    <h1>Our Collection</h1>
+    <p>Discover the world's most exclusive hypercars. Each vehicle is hand-selected, authenticated, and ready for its next chapter.</p>
+  </div>
+
+  <!-- FILTERS + GRID -->
+  <section class="section">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+      <button class="filter-btn" onclick="filterCards('bugatti', this)">Bugatti</button>
+      <button class="filter-btn" onclick="filterCards('pagani', this)">Pagani</button>
+      <button class="filter-btn" onclick="filterCards('koenigsegg', this)">Koenigsegg</button>
+      <button class="filter-btn" onclick="filterCards('mclaren', this)">McLaren</button>
+      <button class="filter-btn" onclick="filterCards('ferrari', this)">Ferrari</button>
+      <button class="filter-btn" onclick="filterCards('lamborghini', this)">Lamborghini</button>
+    </div>
+
+    <div class="collection-grid" id="collectionGrid">
+      <!-- Card 1: Bugatti -->
+      <div class="car-card reveal" data-brand="bugatti">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="Bugatti Chiron" />
+          <span class="car-card-badge">Exclusive</span>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-brand">Bugatti</div>
+          <div class="car-card-name">Chiron Super Sport</div>
+          <div class="car-card-specs">
+            <div class="spec"><span class="spec-value">1600 HP</span><span class="spec-label">Power</span></div>
+            <div class="spec"><span class="spec-value">2.3s</span><span class="spec-label">0-60 MPH</span></div>
+            <div class="spec"><span class="spec-value">304 MPH</span><span class="spec-label">Top Speed</span></div>
+          </div>
+          <div class="car-card-price">
+            <span class="price-tag">$3.9M</span>
+            <a href="bugatti-chiron.html" class="view-btn">View Details →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Pagani -->
+      <div class="car-card reveal" data-brand="pagani">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=600&q=80" alt="Pagani Huayra" />
+          <span class="car-card-badge">Limited</span>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-brand">Pagani</div>
+          <div class="car-card-name">Huayra Roadster BC</div>
+          <div class="car-card-specs">
+            <div class="spec"><span class="spec-value">802 HP</span><span class="spec-label">Power</span></div>
+            <div class="spec"><span class="spec-value">2.8s</span><span class="spec-label">0-60 MPH</span></div>
+            <div class="spec"><span class="spec-value">238 MPH</span><span class="spec-label">Top Speed</span></div>
+          </div>
+          <div class="car-card-price">
+            <span class="price-tag">$5.5M</span>
+            <a href="pagani-huayra.html" class="view-btn">View Details →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Koenigsegg -->
+      <div class="car-card reveal" data-brand="koenigsegg">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&q=80" alt="Koenigsegg Jesko" />
+          <span class="car-card-badge">1 of 125</span>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-brand">Koenigsegg</div>
+          <div class="car-card-name">Jesko Absolut</div>
+          <div class="car-card-specs">
+            <div class="spec"><span class="spec-value">1600 HP</span><span class="spec-label">Power</span></div>
+            <div class="spec"><span class="spec-value">2.5s</span><span class="spec-label">0-60 MPH</span></div>
+            <div class="spec"><span class="spec-value">330 MPH</span><span class="spec-label">Top Speed</span></div>
+          </div>
+          <div class="car-card-price">
+            <span class="price-tag">$3.4M</span>
+            <a href="koenigsegg-jesko.html" class="view-btn">View Details →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: McLaren -->
+      <div class="car-card reveal" data-brand="mclaren">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1621993202323-eb4e81f5aba2?w=600&q=80" alt="McLaren Speedtail" />
+          <span class="car-card-badge">Hybrid</span>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-brand">McLaren</div>
+          <div class="car-card-name">Speedtail</div>
+          <div class="car-card-specs">
+            <div class="spec"><span class="spec-value">1055 HP</span><span class="spec-label">Power</span></div>
+            <div class="spec"><span class="spec-value">2.5s</span><span class="spec-label">0-60 MPH</span></div>
+            <div class="spec"><span class="spec-value">250 MPH</span><span class="spec-label">Top Speed</span></div>
+          </div>
+          <div class="car-card-price">
+            <span class="price-tag">$2.3M</span>
+            <a href="collection.html" class="view-btn">View Details →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Ferrari -->
+      <div class="car-card reveal" data-brand="ferrari">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80" alt="Ferrari LaFerrari" />
+          <span class="car-card-badge">Icon</span>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-brand">Ferrari</div>
+          <div class="car-card-name">LaFerrari Aperta</div>
+          <div class="car-card-specs">
+            <div class="spec"><span class="spec-value">963 HP</span><span class="spec-label">Power</span></div>
+            <div class="spec"><span class="spec-value">2.4s</span><span class="spec-label">0-60 MPH</span></div>
+            <div class="spec"><span class="spec-value">217 MPH</span><span class="spec-label">Top Speed</span></div>
+          </div>
+          <div class="car-card-price">
+            <span class="price-tag">$7.0M</span>
+            <a href="collection.html" class="view-btn">View Details →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Lamborghini -->
+      <div class="car-card reveal" data-brand="lamborghini">
+        <div class="car-card-image">
+          <img src="https://images.unsplash.com/photo-1621993202323-eb4e81f5aba2?w=600&q=80" alt="Lamborghini Sián" />
+          <span class="car-card-badge">1 of 63</span>
+        </div>
+        <div class="car-card-body">
+          <div class="car-card-brand">Lamborghini</div>
+          <div class="car-card-name">Sián FKP 37</div>
+          <div class="car-card-specs">
+            <div class="spec"><span class="spec-value">819 HP</span><span class="spec-label">Power</span></div>
+            <div class="spec"><span class="spec-value">2.8s</span><span class="spec-label">0-60 MPH</span></div>
+            <div class="spec"><span class="spec-value">217 MPH</span><span class="spec-label">Top Speed</span></div>
+          </div>
+          <div class="car-card-price">
+            <span class="price-tag">$3.6M</span>
+            <a href="collection.html" class="view-btn">View Details →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Apex Motors</a>
+        <p>The world's most exclusive hypercar dealership. Curating automotive excellence since 2008.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="collection.html">Collection</a>
+        <a href="experience.html">Experience</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="sold-archive.html">Sold Archive</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html#consignment">Consignment</a>
+        <a href="services.html#financing">Financing</a>
+        <a href="services.html#storage">Storage</a>
+        <a href="services.html#maintenance">Maintenance</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="contact.html#monaco">Monaco Showroom</a>
+        <a href="contact.html#dubai">Dubai Gallery</a>
+        <a href="contact.html#london">London Office</a>
+        <a href="mailto:inquiry@apexmotors.com">inquiry@apexmotors.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Apex Motors. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script>
+    function filterCards(brand, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.car-card').forEach(card => {
+        if (brand === 'all' || card.dataset.brand === brand) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
